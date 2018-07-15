@@ -1,5 +1,5 @@
 /*
-Objective - 2: To learn how to use 'require()' to load our 'own' modules.
+Objective - 3: To learn how to use 'require()' to load 3rd Party modules.
 
 Notes: 
 The require function is similar to #include in C/C++.
@@ -7,6 +7,17 @@ The require function is similar to #include in C/C++.
 
 console.log('Loading App...');
 const notes = require('./notes.js');
+
+
+/*3rd Party Module: lodash*/
+const _ = require('lodash'); 
+console.log(_.isString(true));
+console.log(_.isString('true'));
+//One of its functions include isString, which checks if the given input is a string.
+var filteredArray = _.uniq(['Omkar', 1, 'Omkar', '1', 1 , 2, 3 ,4 ,5]);
+console.log(filteredArray);
+
+
 
 var res = notes.addNote();
 console.log(res);
