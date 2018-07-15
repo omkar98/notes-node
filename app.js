@@ -1,12 +1,18 @@
 /*
-Objective: To learn how to use 'require()' to load built-in modules.
+Objective - 2: To learn how to use 'require()' to load our 'own' modules.
 
 Notes: 
 The require function is similar to #include in C/C++.
 */
 
 console.log('Loading App...');
+const notes = require('./notes.js');
 
+var res = notes.addNote();
+console.log(res);
+
+var addition = notes.add(4,-5);
+console.log(addition);
 /*  
     fs is an in-built module available in Node.js
     Such modules have function that perform various tasks
@@ -18,6 +24,7 @@ const fs = require('fs');
 const os = require('os');
 var user = os.userInfo();//This function stores all the data of the user into the user variable. This data includes - uid, gid, username, homedir & shell.
 console.log(user.username);
+
 
 /*
 For Higher versions of Node, the function fs.appendFile() throws a callback error. To avoid it, we provide a thrid argument function(err).
@@ -43,5 +50,5 @@ To print Hello, Uday!
 fs.appendFileSync('greetings.txt', 'Hello, ' + user.username + '!');
 /*Method - 2: Using template Strings
 USE BACK TICKS, available beside the '1' key or below the 'ESC' key*/
-fs.appendFileSync('greetings.txt', `Hello, ${user.username}!`);
+fs.appendFileSync('greetings.txt', `Hello, ${user.username}! You are ${notes.age}`);
 
