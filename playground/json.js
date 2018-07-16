@@ -1,27 +1,34 @@
-/*Objective - 7.1: To store the notes, when the user adds a note. We use the JSON files to store the notes.
+
+/*Objective - 7.2: We have defined an object 'originalNote' here. 
+We then convert this object into a string and store it in a notes.json file.
+We read the string from that file, and convert it back to an object of our choice 'Note'.
 
 JSON - JavaScript Object Notation, is a lightweight format that is used for data interchanging.
 It is used to to represent arrays, objects etc in form of 'strings'.*/
 
+const fs = require('fs');
 
-/*Here we convert an object to a string, so that it can be used by JSON file.*/
-var obj = {
-    firstName: 'Omkar',
-    lastName: 'Deshpande',
-    age: 21
+//Our object
+var originalNote = {
+    title: 'Some Title',
+    body: 'Some Body'
 };
-var stringObj = JSON.stringify(obj);
-console.log(typeof stringObj);
-console.log(stringObj);
+//
+//console.log(typeof originalNote);
+//console.log(originalNote.title);
 
-/*Here we convert a string to an object, so that it can be used by our processes.*/
-var personString = '{"firstName":"Omkar", "lastName":"Deshpande", "age":21}';
-var person = JSON.parse(personString);
-console.log(typeof person);
-console.log(person);
+//Our object is being converted to a string
+var originalNoteString = JSON.stringify(originalNote);
 
+//This string is written into a json file
+fs.writeFileSync('notes.json',originalNoteString);
 
-/*
-Our Target:
-Take the string and store it in a file, then read the string from the file using JSON.parse() to convert to to an object.
-*/
+//We fetch the string from the json file
+var noteString = fs.readFileSync('notes.json');
+
+//We noe convert the fetched string into an object
+var note = JSON.parse(noteString);
+
+//We now check if the conversion was done appropriately.
+console.log(typeof note);
+console.log(note.title);
