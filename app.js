@@ -30,7 +30,18 @@ if(command === 'add')
 {
     console.log('Adding New note');
     /*Here basically, we have created our own module 'notes.js' and defined a function named 'addNote' there.*/
-    notes.addNote(argv.title, argv.body);
+    var note = notes.addNote(argv.title, argv.body);
+    if(note)
+        {
+            console.log('Note created successfully!');
+            console.log('Title: ', note.title);
+            console.log('Note: ', note.body);
+        }
+    else
+        {
+            console.log('Note title already exists');
+        }
+    
 }
 else if(command === 'list')
 {
