@@ -27,12 +27,24 @@ var addNote = (title, body) => {
        title, //title = title
        body //body = body
    };
-    /*Below two statements:
+    
+    /*Why to use try-catch statements here?
+    We use it because, our program throws an error, as we are trying to read a file, which doesn't exist initially. 
+    
+    In such error, try executes the catch statement, which in this case executes nothing, as we want the initial notes array to be empty.
+    
+    In this way, when the reading operation fails, it simply executes the writing operation.*/
+    
+    try{
+        /*Below two statements:
     The previous data in the notes-data.json is read and this data(string) is converted back to an object and stored in 'notes' variable.
     This is done to avoid vanishing off old data and overwriting by new data. */
    var notesString = fs.readFileSync('notes-data.json');
    notes = JSON.parse(notesString);
-    
+    }
+    catch(e){
+        
+        }
    notes.push(note);
    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
