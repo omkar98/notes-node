@@ -27,11 +27,15 @@ var addNote = (title, body) => {
        title, //title = title
        body //body = body
    };
+    /*Below two statements:
+    The previous data in the notes-data.json is read and this data(string) is converted back to an object and stored in 'notes' variable.
+    This is done to avoid vanishing off old data and overwriting by new data. */
+   var notesString = fs.readFileSync('notes-data.json');
+   notes = JSON.parse(notesString);
+    
    notes.push(note);
    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
-
-
 
 var getAll = () => {
     console.log('Listing all notes');
