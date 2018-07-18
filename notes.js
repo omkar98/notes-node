@@ -18,6 +18,8 @@ var saveNotes = (notes) => {
 };
 /*--------------------------*/
 
+/*------------------------------*/
+
 
 var addNote = (title, body) => {
    var notes = fetchNotes();
@@ -49,17 +51,15 @@ var getAll = () => {
 
 var getNote = (title) => {
     console.log('Reading Note', title);
+    var notes = fetchNotes();
+    readNote = notes.filter((notes) => notes.title === title)
+    console.log('Found this note: ', readNote);
+    return readNote[0];
 };
 
 var removeNote = (title) => {
     console.log('Removing Note', title);
-    /*To remove notes we follow 3 steps:
-    a) Fetch all the notes
-    b) Filtering the notes, removing the one with title of argument
-    c) save the notes array
-    */
-    
-//Fetch notes
+    //Fetch notes
     var notes = fetchNotes();
 //Filtering the notes
     var keepingNotes =
@@ -71,6 +71,8 @@ var removeNote = (title) => {
     
     return notes.length !== keepingNotes.length
 };
+
+
 
 module.exports = {
     addNote,  //addNote: addNote === addNote
