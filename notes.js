@@ -53,6 +53,23 @@ var getNote = (title) => {
 
 var removeNote = (title) => {
     console.log('Removing Note', title);
+    /*To remove notes we follow 3 steps:
+    a) Fetch all the notes
+    b) Filtering the notes, removing the one with title of argument
+    c) save the notes array
+    */
+    
+//Fetch notes
+    var notes = fetchNotes();
+//Filtering the notes
+    var keepingNotes =
+        notes.filter((notes) => notes.title != title
+    );
+    console.log("Will keep the following Notes: " , keepingNotes);
+//saving Notes
+    saveNotes(keepingNotes);
+    
+    return notes.length !== keepingNotes.length
 };
 
 module.exports = {
