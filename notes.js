@@ -18,7 +18,6 @@ var saveNotes = (notes) => {
 };
 /*--------------------------*/
 var logNote = (note) => {
-    debugger;
     console.log('Title: ', note.title);
     console.log('Description: ', note.body);
 }
