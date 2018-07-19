@@ -17,6 +17,12 @@ var saveNotes = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes)); 
 };
 /*--------------------------*/
+var logNote = (note) => {
+    debugger;
+    console.log('Title: ', note.title);
+    console.log('Description: ', note.body);
+}
+
 
 /*------------------------------*/
 
@@ -78,5 +84,6 @@ module.exports = {
     addNote,  //addNote: addNote === addNote
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    logNote
 };

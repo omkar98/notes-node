@@ -34,8 +34,7 @@ if(command === 'add')
     if(note)
         {
             console.log('Note created successfully!');
-            console.log('Title: ', note.title);
-            console.log('Description: ', note.body);
+            notes.logNote(note);
         }
     else
         {
@@ -53,8 +52,7 @@ else if(command === 'read')
     //console.log(requiredNote);
     if(requiredNote)
     {
-        console.log('Title: ', requiredNote.title);
-        console.log('Description: ', requiredNote.body);
+        notes.logNote(requiredNote);
     }
     else{
         console.log('Note not found...');
